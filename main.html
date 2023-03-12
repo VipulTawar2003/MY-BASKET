@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My-Basket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+
+        .heading {
+            /* border: 2px solid red; */
+            background-color: antiquewhite;
+            height: 110px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .heading img {
+            height: 60px;
+            width: auto;
+            border-radius: 50%;
+        }
+
+
+
+        .navbar {
+            height: 100px;
+        }
+
+        .navbar img {
+            height: 100%;
+            width: auto;
+        }
+
+        .heading h1 {
+            text-align: center;
+            color: green;
+            padding: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .nav {
+            background-color: lime;
+            display: grid;
+            place-items: center;
+        }
+
+        .nav ul {
+            list-style-type: none;
+        }
+
+        .nav ul a {
+            display: inline-block;
+            padding: 20px;
+            text-decoration: none;
+            color: #000;
+            transition: 0.3s ease-in;
+            font: 18px;
+        }
+
+        .nav ul a:hover {
+            background-color: green;
+            color: white;
+
+        }
+
+        .category {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+        }
+
+        .category img {
+            height: 300px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .row {
+            width: 100%;
+        }
+
+        .category img:hover {
+            transform: scale(1.03);
+        }
+
+        .category h2 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 30px 20px;
+            grid-column-gap: 20px;
+            grid-row-gap: 30px;
+            /* height: ; */
+            place-items: center;
+        }
+
+        .items img {
+            /* border: 2px solid red; */
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .items img:hover {
+            transform: scale(1.05);
+        }
+
+        .item h4 {
+            padding: 5px;
+            text-align: center;
+        }
+
+        .item button {
+            padding: 5px 30px;
+            background-color: green;
+            outline: none;
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+            display: block;
+            margin: 0 auto;
+            transition: 0.2s all;
+        }
+
+        .item button:hover {
+            transform: scale(1.08);
+        }
+
+        @media screen and (max-width:1200px) {
+            .items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width:720px) {
+            .items {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        .input {
+            /* display: flex; */
+            align-items: center;
+            border-radius: 0px;
+        }
+
+        .input p {
+            display: flex;
+            align-items: center;
+            background-color: rgb(25, 200, 25);
+            color: aliceblue;
+            padding: 2px 2px 2px 2px;
+
+        }
+
+        .name-price {
+            display: flex;
+            display: block;
+            justify-content: center;
+            text-align: center;
+            /* align-items: center; */
+
+        }
+
+        .price {
+            display: flex;
+            /* align-items: center; */
+            align-items: baseline;
+            justify-content: space-between;
+
+        }
+
+        .price p {
+            padding: 5px 22px;
+            border: 1px solid gray;
+            border-radius: 10px;
+
+        }
+
+        .about-us {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- navbar start  -->
+    <div class="heading">
+        <img src="./images/delivery-man.png" alt="">
+        <h1>My-Basket</h1>
+    </div>
+
+    <div class="nav">
+        <div class="d-flex justify-content-between">
+            <ul>
+                <a href="">
+                    <li>Home<i class="bi bi-house"></i></li>
+                </a>
+                <a href="">
+                    <li>Orders<i class="bi bi-bag"></i></li>
+                </a>
+                <a href="">
+                    <li>Cart<i class="bi bi-cart"></i></li>
+                </a>
+                <a href="">
+                    <li>Offers<i class="bi bi-star"></i></li>
+                </a>
+                <a href="">
+                    <li>Log In <i class="bi bi-box-arrow-in-right"></i></li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <!-- navbar ends  -->
+    <!-- input start  -->
+    <div>
+        <div>
+            <div class="input">
+                <div>
+                    <p> <i class="bi bi-search"></i> <input type="text" class="w-100 form-control" placeholder="Search"
+                            name="" id=""></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- input ends  -->
+
+    <!-- category starts  -->
+    <div class="category">
+        <h2>-------- Shop by Category --------</h2>
+        <hr>
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dmVnZXRhYmxlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+                    alt="">
+                <div>
+                    <ul>
+                        <ol>
+                            <li>Tomato</li>
+                            <li>Potato</li>
+                            <li>Broccoli</li>
+                            <li>Ladyfinger</li>
+                        </ol>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60"
+                    alt="">
+                <div>
+                    <ul>
+                        <ol>
+                            <li>Apple</li>
+                            <li>Banana</li>
+                            <li>Pineapple</li>
+                            <li>Orange</li>
+                        </ol>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+
+                <img src="https://gnbdevcdn.s3.amazonaws.com/Images/Category/dailyessentialsweb.png" alt="">
+                <div>
+                    <ul>
+                        <ol>
+                            <li>Snacks & Beverages</li>
+                            <li>Eggs</li>
+                            <li>Milk</li>
+                            <li>Bread</li>
+                        </ol>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- categpory ends  -->
+    <hr>
+
+    <!-- items start -->
+    <h1>Vegetables</h1>
+    <div class="items">
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1561136594-7f68413baa99?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dG9tYXRvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                alt="">
+            <div class="item-price">
+                <div class="name-price">
+                    <h4>Tomato</h4>
+                    <p>1Kg</p>
+                </div>
+                <div class="price">
+                    <p>39/-</p>
+                    <button type="button" class="btn btn-success">Add <i class="bi bi-cart4"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG90YXRvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                alt="">
+
+            <div class="item-price">
+                <div class="name-price">
+                    <h4>Potato</h4>
+                    <p>1Kg</p>
+                </div>
+                <div class="price">
+                    <p>20/-</p>
+                    <button type="button" class="btn btn-success">Add <i class="bi bi-cart4"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1598030413471-23097f7a81be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZWdncGxhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+                alt="">
+            <div class="item-price">
+                <div class="name-price">
+                    <h4>Bringal</h4>
+                    <p>1Kg</p>
+                </div>
+                <div class="price">
+                    <p>40/-</p>
+                    <button type="button" class="btn btn-success">Add <i class="bi bi-cart4"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1621953723422-6023013f659d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2Fwc2ljdW18ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+                alt="">
+            <div class="item-price">
+                <div class="name-price">
+                    <h4>Capsicum</h4>
+                    <p>1Kg</p>
+                </div>
+                <div class="price">
+                    <p>60/-</p>
+                    <button type="button" class="btn btn-success">Add <i class="bi bi-cart4"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="https://images.pexels.com/photos/3722583/pexels-photo-3722583.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="">
+            <div class="item-price">
+                <div class="name-price">
+                    <h4>Broccoli</h4>
+                    <p>1Kg</p>
+                </div>
+                <div class="price">
+                    <p>80/-</p>
+                    <button type="button" class="btn btn-success">Add <i class="bi bi-cart4"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="https://t4.ftcdn.net/jpg/00/25/52/81/240_F_25528177_XOsoIrOuw5RM4qOMR1KLOuRzfAxLNPDl.jpg" alt="">
+            <div class="item-price">
+                <div class="name-price">
+                    <h4>Loki</h4>
+                    <p>1Kg</p>
+                </div>
+                <div class="price">
+                    <p>25/-</p>
+                    <button type="button" class="btn btn-success">Add <i class="bi bi-cart4"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1588891557811-5f2fba9e3009?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNwaW5hY2h8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+                alt="">
+            <div class="item-price">
+                <div class="name-price">
+                    <h4>Palak</h4>
+                    <p>1 piece</p>
+                </div>
+                <div class="price">
+                    <p>10/-</p>
+                    <button type="button" class="btn btn-success">Add <i class="bi bi-cart4"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1664289242854-e99d345cfa92?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFkeWZpbmdlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+                alt="">
+            <div class="item-price">
+                <div class="name-price">
+                    <h4>Ladyfinger</h4>
+                    <p>1Kg</p>
+                </div>
+                <div class="price">
+                    <p>80/-</p>
+                    <button type="button" class="btn btn-success">Add <i class="bi bi-cart4"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="https://images.pexels.com/photos/928251/pexels-photo-928251.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="">
+            <div class="item-price">
+                <div class="name-price">
+                    <h4>Garlic</h4>
+                    <p>1Kg</p>
+                </div>
+                <div class="price">
+                    <p>45/-</p>
+                    <button type="button" class="btn btn-success">Add <i class="bi bi-cart4"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- item ends  -->
+    <hr>
+    <!-- About start -->
+    <div class="about">
+        <p class="about-us">----------- About Us -----------</p>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>About Us :</h3>
+                <ul>
+                    <li>
+                        Frequently ask questions
+                    </li>
+                    <li>
+                        Terms And Conditions
+                    </li>
+                    <li>Delivery</li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h3>Contact</h3>
+                <ul>
+                    <li>
+                        <a href="">Instagram_<i class="bi bi-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="">Facebook_<i class="bi bi-facebook"></i></a>
+                    </li>
+                    <li><a href="">Twitter_<i class="bi bi-twitter"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h3>Sign up</h3>
+                <div>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Your Email" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
